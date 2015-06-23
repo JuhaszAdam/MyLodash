@@ -300,7 +300,7 @@ class MyLodash
 
     /**
      * @param array $array
-     * @return mixed
+     * @return array
      */
     public function initial(array $array)
     {
