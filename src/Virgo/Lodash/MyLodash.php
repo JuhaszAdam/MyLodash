@@ -27,4 +27,14 @@ class MyLodash
     {
         return array_filter($array);
     }
+
+    /**
+     * @param array $array1
+     * @param array $array1
+     * @return array
+     */
+    public function difference(array $array1, array $array2)
+    {
+        return array_diff($array1, $array2);
+    }
 }

@@ -41,6 +41,6 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $myLodash = new MyLodash();
 
         $result = $myLodash->difference([1, 2, 3], [4, 2]);
-        $this->assertEquals([1, 3], $result);
+        $this->assertEquals([0 => 1, 2 => 3], $result);
     }
 }
