@@ -38,8 +38,17 @@ class MyLodash
         return array_diff($array1, $array2);
     }
 
+    /**
+     * @param array $array
+     * @param int $n
+     * @return array
+     */
     public function drop(array $array, $n = 1)
     {
+        if (!is_integer($n)) {
+            throw new \InvalidArgumentException("Second argument must be an integer with a minimum of 1!");
+        }
+
         for ($i = 0; $i < $n; $i++) {
             array_shift($array);
         }
