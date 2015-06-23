@@ -148,4 +148,18 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->dropRightWhile($originalArray, 'active');
         $this->assertEquals($originalArray, $result);
     }
+
+    public function tertFill()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->fill([1, 2, 3], 'a');
+        $this->assertEquals(['a', 'a', 'a'], $result);
+
+        $result = $myLodash->fill(Array(3), 2);
+        $this->assertEquals([2, 2, 2], $result);
+
+        $result = $myLodash->fill([4, 6, 8], '*', 1, 2);
+        $this->assertEquals([4, '*', 8], $result);
+    }
 }
