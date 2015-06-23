@@ -182,4 +182,33 @@ class MyLodash
 
         return $array;
     }
+
+    public function findIndex(array $array, $predicate, $argument = null)
+    {
+        if (is_array($predicate)) {
+            foreach ($array as $key => $element) {
+                if ($element === $predicate) {
+                    return $key;
+                }
+            }
+        } else {
+            if ($argument === null) {
+                $found = -1;
+                foreach ($array as $key => $element) {
+                    if (array_key_exists($predicate, $element)) {
+                        $found = $key;
+                    }
+                }
+                return $found;
+            } else {
+                foreach ($array as $key => $element) {
+                    if ($element[$predicate] === $argument) {
+                        return $key;
+                    }
+                }
+            }
+        }
+
+        return -1;
+    }
 }
