@@ -326,4 +326,25 @@ class MyLodash
     {
         return array_pop($array);
     }
+
+    /**
+     * @param array $array
+     * @param ...$values
+     * @return array
+     */
+    public function pull(array $array, ...$values)
+    {
+        $result = [];
+
+        foreach ($array as $element) {
+            foreach ($values as $value) {
+                if ($element === $value) {
+                    continue(2);
+                }
+            }
+            array_push($result, $element);
+        }
+
+        return $result;
+    }
 }

@@ -269,6 +269,6 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $myLodash = new MyLodash();
 
         $result = $myLodash->pull([1, 2, 3, 1, 2, 3], 2, 3);
-        $this->assertEquals([0 => 1, 3 => 1], $result);
+        $this->assertEquals([1, 1], $result);
     }
 }
