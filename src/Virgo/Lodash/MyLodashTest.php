@@ -248,5 +248,11 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals([1, 2], $result);
     }
 
+    public function testIntersection()
+    {
+        $myLodash = new MyLodash();
 
+        $result = $myLodash->intersection([1, 2], [4, 2], [2, 1]);
+        $this->assertEquals([2], $result);
+    }
 }
