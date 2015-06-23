@@ -367,4 +367,15 @@ class MyLodash
 
         return $result;
     }
+
+    /**
+     * @param array $array
+     * @return array
+     */
+    public function rest(array $array)
+    {
+        array_shift($array);
+
+        return $array;
+    }
 }
