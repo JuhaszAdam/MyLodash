@@ -348,4 +348,12 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->takeRight([1, 2, 3], 0);
         $this->assertEquals([], $result);
     }
+
+    public function testUnion()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->union([1, 2], [4, 2], [2, 1]);
+        $this->assertEquals([1, 2, 4], $result);
+    }
 }
