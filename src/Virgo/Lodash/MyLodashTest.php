@@ -365,6 +365,6 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals([2, 1], $result);
 
         $result = $myLodash->uniq([1, 1, 2], true);
-        $this->assertEquals([2, 1], $result);
+        $this->assertEquals([1, 2 => 2], $result);
     }
 }

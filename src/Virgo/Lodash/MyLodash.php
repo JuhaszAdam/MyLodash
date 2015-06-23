@@ -456,4 +456,17 @@ class MyLodash
         }
         return $result;
     }
+
+    /**
+     * @param array $array
+     * @param bool $flag
+     * @return array
+     */
+    public function uniq(array $array, $flag = false)
+    {
+        if ($flag) {
+            $flag = SORT_REGULAR;
+        }
+        return array_unique($array, $flag);
+    }
 }
