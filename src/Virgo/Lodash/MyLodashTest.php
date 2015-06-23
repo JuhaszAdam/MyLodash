@@ -124,4 +124,28 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->dropWhile($originalArray, 'active');
         $this->assertEquals($originalArray, $result);
     }
+
+    public function testDropRightWile()
+    {
+        $myLodash = new MyLodash();
+        $originalArray = [
+            ['user' => 'barney', 'active' => true],
+            ['user' => 'fred', 'active' => false],
+            ['user' => 'pebbles', 'active' => false]
+        ];
+
+        $result = $myLodash->dropWRightWhile($originalArray, ['user' => 'pebbles', 'active' => false]);
+        $this->assertEquals([
+            ['user' => 'barney', 'active' => true],
+            ['user' => 'fred', 'active' => false]
+        ], $result);
+
+        $result = $myLodash->dropWRightWhile($originalArray, 'active', false);
+        $this->assertEquals([
+            ['user' => 'barney', 'active' => true]
+        ], $result);
+
+        $result = $myLodash->dropWRightWhile($originalArray, 'active');
+        $this->assertEquals($originalArray, $result);
+    }
 }
