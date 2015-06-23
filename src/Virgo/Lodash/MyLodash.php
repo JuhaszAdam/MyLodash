@@ -161,6 +161,13 @@ class MyLodash
         }
     }
 
+    /**
+     * @param array $array
+     * @param mixed $value
+     * @param int $start
+     * @param null|int $end
+     * @return array
+     */
     public function fill(array $array, $value, $start = 0, $end = null)
     {
         if ($end === null) {

@@ -162,4 +162,26 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->fill([4, 6, 8], '*', 1, 2);
         $this->assertEquals([4, '*', 8], $result);
     }
+
+    public function testFindIndex()
+    {
+        $myLodash = new MyLodash();
+        $originalArray = [
+            ['user' => 'barney', 'active' => false],
+            ['user' => 'fred', 'active' => false],
+            ['user' => 'pebbles', 'active' => true]
+        ];
+
+        $result = $myLodash->findIndex($originalArray, ['user' => 'fred', 'active' => false]);
+        $this->assertEquals(1, $result);
+
+        $result = $myLodash->findIndex($originalArray, 'active', false);
+        $this->assertEquals(0, $result);
+
+        $result = $myLodash->findIndex($originalArray, 'active');
+        $this->assertEquals(2, $result);
+
+        $result = $myLodash->findIndex($originalArray, ['user' => 'fred', 'active' => true]);
+        $this->assertEquals(-1, $result);
+    }
 }
