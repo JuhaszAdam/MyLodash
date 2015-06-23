@@ -367,4 +367,12 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->uniq([1, 1, 2], true);
         $this->assertEquals([1, 2 => 2], $result);
     }
+
+    public function testWithout()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->without([1, 2, 1, 3], 1, 2);
+        $this->assertEquals([3], $result);
+    }
 }
