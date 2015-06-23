@@ -211,10 +211,21 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
     {
         $myLodash = new MyLodash();
 
-        $result = $myLodash->first([1,2,3]);
+        $result = $myLodash->first([1, 2, 3]);
         $this->assertEquals(1, $result);
 
         $result = $myLodash->first([]);
         $this->assertEquals(null, $result);
+    }
+
+    public function testFlatten()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->flatten([1, [2, 3, [4]]]);
+        $this->assertEquals([1, 2, 3, [4]], $result);
+
+        $result = $myLodash->flatten([1, [2, 3, [4]]], true);
+        $this->assertEquals([1, 2, 3, 4], $result);
     }
 }
