@@ -372,7 +372,7 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
     {
         $myLodash = new MyLodash();
 
-        $result = $myLodash->without([1, 2, 1, 3], 1, 2);
-        $this->assertEquals([3], $result);
+        $result = $myLodash->without([1, 2, 1, 3], 1);
+        $this->assertEquals([1 => 2, 3 => 3], $result);
     }
 }

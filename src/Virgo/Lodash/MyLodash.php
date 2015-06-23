@@ -469,4 +469,14 @@ class MyLodash
         }
         return array_unique($array, $flag);
     }
+
+    /**
+     * @param array $array
+     * @param $value
+     * @return array
+     */
+    public function without(array $array, $value)
+    {
+        return array_diff($array, [$value]);
+    }
 }
