@@ -353,7 +353,7 @@ class MyLodash
      * @param ...$values
      * @return array
      */
-    public function pullAlt(array $array, ...$values)
+    public function remove(array $array, ...$values)
     {
         $result = [];
 
