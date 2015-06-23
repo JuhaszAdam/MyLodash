@@ -297,4 +297,15 @@ class MyLodash
             return array_search($value, $array);
         }
     }
+
+    /**
+     * @param array $array
+     * @return mixed
+     */
+    public function initial(array $array)
+    {
+        array_pop($array);
+
+        return $array;
+    }
 }
