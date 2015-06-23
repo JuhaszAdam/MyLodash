@@ -116,4 +116,48 @@ class MyLodash
             }
         }
     }
+
+    /**
+     * @param array $array
+     * @param mixed $predicate
+     * @param null|mixed $argument
+     * @return array
+     */
+    public function dropRightWhile(array $array, $predicate, $argument = null)
+    {
+        $reversedArray = array_reverse($array);
+        if (is_array($predicate)) {
+            foreach ($reversedArray as $element) {
+                if ($element === $predicate) {
+                    array_pop($array);
+                } else {
+                    return $array;
+                }
+            }
+
+            return $array;
+        } else {
+            if ($argument === null) {
+                foreach ($reversedArray as $key => $element) {
+                    if ($key === $predicate) {
+                        array_pop($array);
+                    } else {
+                        return $array;
+                    }
+                }
+
+                return $array;
+            } else {
+                foreach ($reversedArray as $key => $element) {
+                    if ($element[$predicate] === $argument) {
+                        array_pop($array);
+                    } else {
+                        return $array;
+                    }
+                }
+
+                return $array;
+            }
+        }
+    }
 }
