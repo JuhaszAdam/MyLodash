@@ -347,4 +347,24 @@ class MyLodash
 
         return $result;
     }
+
+    /**
+     * @param array $array
+     * @param ...$values
+     * @return array
+     */
+    public function pullAlt(array $array, ...$values)
+    {
+        $result = [];
+
+        foreach ($array as $element) {
+            foreach ($values as $value) {
+                if ($element === $value) {
+                    array_push($result, $element);
+                }
+            }
+        }
+
+        return $result;
+    }
 }
