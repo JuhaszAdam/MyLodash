@@ -278,4 +278,17 @@ class MyLodash
 
         return $result;
     }
+
+    public function indexOf(array $array, $value, $from = 0)
+    {
+        if ($from !== 0) {
+            for ($i = $from; $i < sizeof($array); $i++) {
+                if ($array[$i] === $value) {
+                    return $i;
+                }
+            }
+        } else {
+            return array_search($value, $array);
+        }
+    }
 }
