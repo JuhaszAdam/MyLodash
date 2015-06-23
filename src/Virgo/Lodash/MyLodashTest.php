@@ -356,4 +356,15 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->union([1, 2], [4, 2], [2, 1]);
         $this->assertEquals([1, 2, 4], $result);
     }
+
+    public function testUnique()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->uniq([2, 1, 2]);
+        $this->assertEquals([2, 1], $result);
+
+        $result = $myLodash->uniq([1, 1, 2], true);
+        $this->assertEquals([2, 1], $result);
+    }
 }
