@@ -239,4 +239,14 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->indexOf([1, 2, 1, 2], 2, 2);
         $this->assertEquals(3, $result);
     }
+
+    public function testInitial()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->initial([1, 2, 3]);
+        $this->assertEquals([1, 2], $result);
+    }
+
+
 }

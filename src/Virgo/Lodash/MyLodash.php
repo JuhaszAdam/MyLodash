@@ -279,6 +279,12 @@ class MyLodash
         return $result;
     }
 
+    /**
+     * @param array $array
+     * @param mixed $value
+     * @param int $from
+     * @return int|mixed
+     */
     public function indexOf(array $array, $value, $from = 0)
     {
         if ($from !== 0) {
