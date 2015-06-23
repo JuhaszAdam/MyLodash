@@ -210,6 +210,12 @@ class MyLodash
         return -1;
     }
 
+    /**
+     * @param array $array
+     * @param mixed $predicate
+     * @param null|mixed $argument
+     * @return int|string
+     */
     public function findLastIndex(array $array, $predicate, $argument = null)
     {
         $found = -1;
@@ -236,5 +242,14 @@ class MyLodash
         }
 
         return $found;
+    }
+
+    /**
+     * @param array $array
+     * @return mixed
+     */
+    public function first(array $array)
+    {
+        return array_shift($array);
     }
 }
