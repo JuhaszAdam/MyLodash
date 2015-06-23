@@ -179,9 +179,31 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $result);
 
         $result = $myLodash->findIndex($originalArray, 'active');
-        $this->assertEquals(2, $result);
+        $this->assertEquals(0, $result);
 
         $result = $myLodash->findIndex($originalArray, ['user' => 'fred', 'active' => true]);
+        $this->assertEquals(-1, $result);
+    }
+
+    public function testFindLastIndex()
+    {
+        $myLodash = new MyLodash();
+        $originalArray = [
+            ['user' => 'barney', 'active' => false],
+            ['user' => 'fred', 'active' => false],
+            ['user' => 'pebbles', 'active' => true]
+        ];
+
+        $result = $myLodash->findLastIndex($originalArray, ['user' => 'fred', 'active' => false]);
+        $this->assertEquals(1, $result);
+
+        $result = $myLodash->findLastIndex($originalArray, 'active', false);
+        $this->assertEquals(1, $result);
+
+        $result = $myLodash->findLastIndex($originalArray, 'active');
+        $this->assertEquals(2, $result);
+
+        $result = $myLodash->findLastIndex($originalArray, ['user' => 'fred', 'active' => true]);
         $this->assertEquals(-1, $result);
     }
 }

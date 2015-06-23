@@ -193,13 +193,11 @@ class MyLodash
             }
         } else {
             if ($argument === null) {
-                $found = -1;
                 foreach ($array as $key => $element) {
                     if (array_key_exists($predicate, $element)) {
-                        $found = $key;
+                        return $key;
                     }
                 }
-                return $found;
             } else {
                 foreach ($array as $key => $element) {
                     if ($element[$predicate] === $argument) {
@@ -210,5 +208,33 @@ class MyLodash
         }
 
         return -1;
+    }
+
+    public function findLastIndex(array $array, $predicate, $argument = null)
+    {
+        $found = -1;
+        if (is_array($predicate)) {
+            foreach ($array as $key => $element) {
+                if ($element === $predicate) {
+                    $found = $key;
+                }
+            }
+        } else {
+            if ($argument === null) {
+                foreach ($array as $key => $element) {
+                    if (array_key_exists($predicate, $element)) {
+                        $found = $key;
+                    }
+                }
+            } else {
+                foreach ($array as $key => $element) {
+                    if ($element[$predicate] === $argument) {
+                        $found = $key;
+                    }
+                }
+            }
+        }
+
+        return $found;
     }
 }
