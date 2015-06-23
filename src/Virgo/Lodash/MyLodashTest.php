@@ -93,7 +93,7 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testDropInvalidArguments()
+    public function testDropRightInvalidArguments()
     {
         $myLodash = new MyLodash();
 

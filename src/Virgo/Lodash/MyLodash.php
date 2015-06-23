@@ -55,4 +55,22 @@ class MyLodash
 
         return $array;
     }
+
+    /**
+     * @param array $array
+     * @param int $n
+     * @return array
+     */
+    public function dropRight(array $array, $n = 1)
+    {
+        if (!is_integer($n)) {
+            throw new \InvalidArgumentException("Second argument must be an integer with a minimum of 1!");
+        }
+
+        for ($i = 0; $i < $n; $i++) {
+            array_pop($array);
+        }
+
+        return $array;
+    }
 }
