@@ -305,4 +305,13 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
 
         $myLodash->slice([1, 2, 3, 4, 5], 4, 1);
     }
+
+
+    public function testSortedFirstIndex()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->sortedFirstIndex([3, 3, 5, 5], 4);
+        $this->assertEquals(2, $result);
+    }
 }

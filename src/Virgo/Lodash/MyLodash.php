@@ -395,4 +395,5 @@ class MyLodash
 
         return array_slice($array, $start, $end - $start);
     }
+
 }
