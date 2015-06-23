@@ -314,4 +314,21 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->sortedFirstIndex([3, 3, 5, 5], 4);
         $this->assertEquals(2, $result);
     }
+
+    public function testTake()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->take([1, 2, 3]);
+        $this->assertEquals([1], $result);
+
+        $result = $myLodash->take([1, 2, 3], 2);
+        $this->assertEquals([1, 2], $result);
+
+        $result = $myLodash->take([1, 2, 3], 5);
+        $this->assertEquals([1, 2, 3], $result);
+
+        $result = $myLodash->take([1, 2, 3], 0);
+        $this->assertEquals([], $result);
+    }
 }
