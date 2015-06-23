@@ -292,9 +292,17 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
     {
         $myLodash = new MyLodash();
 
-        $result = $myLodash->slice([1, 2, 3, 4, 5], 1, 5);
+        $result = $myLodash->slice([1, 2, 3, 4, 5], 1, 4);
         $this->assertEquals([2, 3, 4], $result);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSliceInvalidArgument()
+    {
+        $myLodash = new MyLodash();
 
+        $myLodash->slice([1, 2, 3, 4, 5], 4, 1);
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace Virgo\Lodash;
 
+use Prophecy\Exception\InvalidArgumentException;
+
 class MyLodash
 {
 
@@ -377,5 +379,20 @@ class MyLodash
         array_shift($array);
 
         return $array;
+    }
+
+    /**
+     * @param array $array
+     * @param int $start
+     * @param int $end
+     * @return array
+     */
+    public function slice(array $array, $start, $end)
+    {
+        if ($start >= $end) {
+            throw new \InvalidArgumentException("The 'end' argument must be higher than the 'start' argument!");
+        }
+
+        return array_slice($array, $start, $end - $start);
     }
 }
