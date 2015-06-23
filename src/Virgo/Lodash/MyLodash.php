@@ -317,4 +317,13 @@ class MyLodash
     {
         return call_user_func_array('array_intersect', $arrays);
     }
+
+    /**
+     * @param array $array
+     * @return mixed
+     */
+    public function last(array $array)
+    {
+        return array_pop($array);
+    }
 }
