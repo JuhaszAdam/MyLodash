@@ -263,4 +263,12 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->last([1, 2, 3]);
         $this->assertEquals(3, $result);
     }
+
+    public function testPull()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->pull([1, 2, 3, 1, 2, 3], 2, 3);
+        $this->assertEquals([0 => 1, 3 => 1], $result);
+    }
 }
