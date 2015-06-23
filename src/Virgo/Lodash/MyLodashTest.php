@@ -287,4 +287,14 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->rest([1, 2, 3]);
         $this->assertEquals([2, 3], $result);
     }
+
+    public function testSlice()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->slice([1, 2, 3, 4, 5], 1, 5);
+        $this->assertEquals([2, 3, 4], $result);
+    }
+
+
 }
