@@ -331,4 +331,21 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->take([1, 2, 3], 0);
         $this->assertEquals([], $result);
     }
+
+    public function testTakeRight()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->takeRight([1, 2, 3]);
+        $this->assertEquals([3], $result);
+
+        $result = $myLodash->takeRight([1, 2, 3], 2);
+        $this->assertEquals([2, 3], $result);
+
+        $result = $myLodash->takeRight([1, 2, 3], 5);
+        $this->assertEquals([1, 2, 3], $result);
+
+        $result = $myLodash->takeRight([1, 2, 3], 0);
+        $this->assertEquals([], $result);
+    }
 }
