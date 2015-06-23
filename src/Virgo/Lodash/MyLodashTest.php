@@ -272,11 +272,19 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals([1, 1], $result);
     }
 
-    public function remove()
+    public function testRemove()
     {
         $myLodash = new MyLodash();
 
         $result = $myLodash->remove([1, 2, 3, 1, 2, 3], 2, 3);
         $this->assertEquals([2, 3, 2, 3], $result);
+    }
+
+    public function testRest()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->initial([1, 2, 3]);
+        $this->assertEquals([2, 3], $result);
     }
 }
