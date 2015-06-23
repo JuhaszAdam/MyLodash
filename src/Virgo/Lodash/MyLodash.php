@@ -2,8 +2,6 @@
 
 namespace Virgo\Lodash;
 
-use Prophecy\Exception\InvalidArgumentException;
-
 class MyLodash
 {
 
@@ -32,7 +30,7 @@ class MyLodash
 
     /**
      * @param array $array1
-     * @param array $array1
+     * @param array $array2
      * @return array
      */
     public function difference(array $array1, array $array2)
@@ -405,6 +403,20 @@ class MyLodash
         }
 
         return -1;
+    }
+
+    /**
+     * @param array $array
+     * @param int $length
+     * @return array
+     */
+    public function take(array $array, $length = 1)
+    {
+        if (!is_integer($length) || $length < 0) {
+            throw new \InvalidArgumentException("Second argument must be an integer with a minimum of 0!");
+        }
+
+        return array_slice($array, 0, $length);
     }
 
 }
