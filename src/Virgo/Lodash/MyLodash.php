@@ -73,4 +73,41 @@ class MyLodash
 
         return $array;
     }
+
+    public function dropWhile(array $array, $predicate, $argument = null)
+    {
+        if (is_array($predicate)) {
+            foreach ($array as $element) {
+                if ($element === $predicate) {
+                    array_shift($array);
+                } else {
+                    return $array;
+                }
+            }
+
+            return $array;
+        } else {
+            if ($argument === null) {
+                foreach ($array as $key => $element) {
+                    if ($key === $predicate) {
+                        array_shift($array);
+                    } else {
+                        return $array;
+                    }
+                }
+
+                return $array;
+            } else {
+                foreach ($array as $key => $element) {
+                    if ($element[$predicate] === $argument) {
+                        array_shift($array);
+                    } else {
+                        return $array;
+                    }
+                }
+
+                return $array;
+            }
+        }
+    }
 }
