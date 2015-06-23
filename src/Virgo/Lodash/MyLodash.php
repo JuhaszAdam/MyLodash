@@ -396,4 +396,15 @@ class MyLodash
         return array_slice($array, $start, $end - $start);
     }
 
+    public function sortedFirstIndex(array $array, $insertValue)
+    {
+        foreach ($array as $key => $value) {
+            if ($value >= $insertValue) {
+                return $key;
+            }
+        }
+
+        return -1;
+    }
+
 }
