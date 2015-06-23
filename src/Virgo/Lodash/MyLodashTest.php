@@ -255,4 +255,12 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->intersection([1, 2], [4, 2], [2, 1]);
         $this->assertEquals([1 => 2], $result);
     }
+
+    public function testLast()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->last([1, 2, 3]);
+        $this->assertEquals(3, $result);
+    }
 }
