@@ -437,4 +437,23 @@ class MyLodash
         return array_slice($array, $start, $length);
     }
 
+    /**
+     * @param array ...$arrays
+     * @return mixed
+     */
+    public function union(array ...$arrays)
+    {
+        $result = [];
+        foreach ($arrays as $array) {
+            foreach ($array as $element) {
+                foreach ($result as $resultElement) {
+                    if ($element === $resultElement) {
+                        continue(2);
+                    }
+                }
+                array_push($result, $element);
+            }
+        }
+        return $result;
+    }
 }
