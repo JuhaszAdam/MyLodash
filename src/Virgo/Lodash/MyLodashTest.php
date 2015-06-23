@@ -149,14 +149,14 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($originalArray, $result);
     }
 
-    public function tertFill()
+    public function testFill()
     {
         $myLodash = new MyLodash();
 
         $result = $myLodash->fill([1, 2, 3], 'a');
         $this->assertEquals(['a', 'a', 'a'], $result);
 
-        $result = $myLodash->fill(Array(3), 2);
+        $result = $myLodash->fill([1, 2, 3], 2);
         $this->assertEquals([2, 2, 2], $result);
 
         $result = $myLodash->fill([4, 6, 8], '*', 1, 2);

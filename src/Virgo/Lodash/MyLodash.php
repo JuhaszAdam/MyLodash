@@ -160,4 +160,19 @@ class MyLodash
             }
         }
     }
+
+    public function fill(array $array, $value, $start = 0, $end = null)
+    {
+        if ($end === null) {
+            $end = sizeof($array);
+        } else {
+            $array = array_replace($array, array_fill($start, $end - 1, $value));
+
+            return $array;
+        }
+
+        $array = array_fill($start, $end, $value);
+
+        return $array;
+    }
 }
