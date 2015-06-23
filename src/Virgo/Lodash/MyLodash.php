@@ -37,4 +37,13 @@ class MyLodash
     {
         return array_diff($array1, $array2);
     }
+
+    public function drop(array $array, $n = 1)
+    {
+        for ($i = 0; $i < $n; $i++) {
+            array_shift($array);
+        }
+
+        return $array;
+    }
 }

@@ -49,15 +49,26 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $myLodash = new MyLodash();
 
         $result = $myLodash->drop([1, 2, 3]);
-        $this->assertEquals([1 => 2, 2 => 3], $result);
+        $this->assertEquals([2, 3], $result);
 
         $result = $myLodash->drop([1, 2, 3], 2);
-        $this->assertEquals([2 => 3], $result);
+        $this->assertEquals([3], $result);
 
         $result = $myLodash->drop([1, 2, 3], 5);
-        $this->assertEquals([1 => 2, 2 => 3], $result);
+        $this->assertEquals([], $result);
 
         $result = $myLodash->drop([1, 2, 3], 0);
         $this->assertEquals([1, 2, 3], $result);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testDropInvalidArguments()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->drop([1, 2, 3], []);
+        $result = $myLodash->drop([1, 2, 3], new \StdClass);
     }
 }
