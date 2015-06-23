@@ -308,4 +308,13 @@ class MyLodash
 
         return $array;
     }
+
+    /**
+     * @param array ...$arrays
+     * @return mixed
+     */
+    public function intersection(...$arrays)
+    {
+        return call_user_func_array('array_intersect', $arrays);
+    }
 }
