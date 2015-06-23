@@ -228,4 +228,19 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->flatten([1, [2, 3, [4]]], true);
         $this->assertEquals([1, 2, 3, 4], $result);
     }
+
+    public function testIndexOf()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->indexOf([1, 2, 1, 2], 2);
+        $this->assertEquals(1, $result);
+
+        $result = $myLodash->indexOf([1, 2, 1, 2], 2, 2);
+        $this->assertEquals(3, $result);
+
+        $result = $myLodash->indexOf([1, 2, 1, 2], 2, true);
+        $this->assertEquals(2, $result);
+
+    }
 }
