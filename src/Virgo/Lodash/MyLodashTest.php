@@ -43,4 +43,21 @@ class MyLodashTest extends \PHPUnit_Framework_TestCase
         $result = $myLodash->difference([1, 2, 3], [4, 2]);
         $this->assertEquals([0 => 1, 2 => 3], $result);
     }
+
+    public function testDrop()
+    {
+        $myLodash = new MyLodash();
+
+        $result = $myLodash->drop([1, 2, 3]);
+        $this->assertEquals([1 => 2, 2 => 3], $result);
+
+        $result = $myLodash->drop([1, 2, 3], 2);
+        $this->assertEquals([2 => 3], $result);
+
+        $result = $myLodash->drop([1, 2, 3], 5);
+        $this->assertEquals([1 => 2, 2 => 3], $result);
+
+        $result = $myLodash->drop([1, 2, 3], 0);
+        $this->assertEquals([1, 2, 3], $result);
+    }
 }
