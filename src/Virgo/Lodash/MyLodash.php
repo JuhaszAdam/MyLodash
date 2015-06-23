@@ -252,4 +252,30 @@ class MyLodash
     {
         return array_shift($array);
     }
+
+    /**
+     * @param array $array
+     * @param bool $deep
+     * @return array
+     */
+    public function flatten(array $array, $deep = false)
+    {
+        $result = [];
+        if ($deep) {
+            $result = [];
+            array_walk_recursive($array, function ($a) use (&$result) {
+                $result[] = $a;
+            });
+        } else {
+            foreach ($array as $element) {
+                if (is_array($element)) {
+                    $result = array_merge($result, $element);
+                } else {
+                    array_push($result, $element);
+                }
+            }
+        }
+
+        return $result;
+    }
 }
