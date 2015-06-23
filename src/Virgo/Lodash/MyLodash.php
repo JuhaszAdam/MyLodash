@@ -419,4 +419,22 @@ class MyLodash
         return array_slice($array, 0, $length);
     }
 
+    /**
+     * @param array $array
+     * @param int $length
+     * @return array
+     */
+    public function takeRight(array $array, $length = 1)
+    {
+        if (!is_integer($length) || $length < 0) {
+            throw new \InvalidArgumentException("Second argument must be an integer with a minimum of 0!");
+        }
+
+        $start = sizeof($array) - $length;
+        if ($start < 0) {
+            $start = 0;
+        }
+        return array_slice($array, $start, $length);
+    }
+
 }
