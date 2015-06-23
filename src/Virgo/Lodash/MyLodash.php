@@ -74,6 +74,12 @@ class MyLodash
         return $array;
     }
 
+    /**
+     * @param array $array
+     * @param mixed $predicate
+     * @param null|mixed $argument
+     * @return array
+     */
     public function dropWhile(array $array, $predicate, $argument = null)
     {
         if (is_array($predicate)) {
